@@ -1,0 +1,24 @@
+{
+  "name": "marko-component-test",
+  "version": "1.0.0-alpha",
+  "description": "Demo of how to build an app using marko-starter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marko-js-samples/marko-starter-demo"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^3.13.0",
+    "eslint-config-marko": "^1.0.1",
+    "marko-devtools": "^1.0.2"
+  },
+  "dependencies": {
+    "marko": "^4.2.4",
+    "marko-starter": "^1.0.0"
+  },
+  "scripts": {
+    "start": "marko-starter server",
+    "build": "marko-starter build"
+  },
+  "private": true
+}
