@@ -1,7 +1,7 @@
 class {
   onInput(input) {
     this.state = {
-      backgroundColor: input.backgroundColor || 'red'
+      backgroundColor: input.backgroundColor || '#ff0000'
     };
   }
 }
@@ -24,6 +24,6 @@ style {
   }
 }
 
-<div.color-picker-header key="color-picker-header" style={backgroundColor}>
+<div.color-picker-header style={backgroundColor}>
   <p>${backgroundColor}</p>
 </div>

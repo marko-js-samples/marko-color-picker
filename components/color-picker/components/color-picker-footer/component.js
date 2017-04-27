@@ -1,16 +1,16 @@
-function isValidHexValue(hexValue) {
+function isValidHexValue (hexValue) {
   return /^#[0-9A-F]{6}$/i.test(hexValue);
 }
 
 module.exports = {
-  onInput(input) {
+  onInput (input) {
     input.colors = input.colors || ['red', 'green', 'blue'];
   },
-  onColorSelected(backgroundColor) {
+  onColorSelected (backgroundColor) {
     this.emit('colorSelected', backgroundColor);
   },
-  onHexInput() {
-    const hexInput = this.getEl('hexInput').value;
+  onHexInput () {
+    let hexInput = this.getEl('hexInput').value;
 
     if (!hexInput.startsWith('#')) {
       hexInput = '#' + hexInput;
