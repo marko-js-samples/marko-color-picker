@@ -1,10 +1,10 @@
 {
-  "name": "marko-component-test",
-  "version": "1.0.0-alpha",
-  "description": "Demo of how to build an app using marko-starter",
+  "name": "marko-color-picker",
+  "version": "1.0.0",
+  "description": "Demo of a color picker component in Marko",
   "repository": {
     "type": "git",
-    "url": "https://github.com/marko-js-samples/marko-starter-demo"
+    "url": "https://github.com/marko-js-samples/marko-color-picker"
   },
   "license": "MIT",
   "devDependencies": {
