@@ -78,6 +78,22 @@ color-picker-tutorial/
       index.marko
 ```
 
+Marko also supports creating components using the file name. For example, the
+following is a valid directory structure:
+
+```
+color-picker-tutorial/
+  components/
+    color-picker.marko
+    color-picker.component.js
+    color-picker.style.css
+```
+
+Creating nested component directories is not required. **We recommend** isolating
+most components in their own directories. Many components will contain additional
+files and tests that live alongside the component. Too many components living
+in a single directory will become very untidy and difficult to manage.
+
 Let's begin by adding some initial component code to the `color-picker`.
 
 **components/color-picker/index.marko**
@@ -151,15 +167,15 @@ to our component. If a `colors` attribute is not passed to the component as
 
 ### Child Components
 
-We've created our first components! This component will act as the entry point
+We've created our first component! This component will act as the entry point
 for children components that we will create. When creating components, it's
 strongly recommended to consider how components can be broken down into
 multiple components. Each component can then be independently tested and managed.
 
 Let's split our component into the following components:
 
-- `<color-picker-header>`: The header will have the selected background color from the color-picker and
-show the selected color's hex value
+- `<color-picker-header>`: The header will have the selected background color
+from the color picker and show the selected color's hex value
 
 <p align="center">
   <img src="https://image.ibb.co/kybsT5/color_picker_header.png">
@@ -180,8 +196,8 @@ displaying an individual color box and the associated click events
 </p>
 
 
-Marko automatically registers all components in a `components/` directory under
-a component. Our new directory structure should look like this:
+Marko automatically registers all components in a nested `components/`
+directories. Our new directory structure should look like this:
 
 ```
 components/
