@@ -13,7 +13,7 @@ Our final goal for today is create this component:
 
 <p align="center">
   <img src="https://image.ibb.co/gcmLFk/color_picker_complete.png">
-<p>
+</p>
 
 ## Getting Started
 
@@ -498,7 +498,7 @@ Our final result:
 
 <p align="center">
   <img src="https://image.ibb.co/gcmLFk/color_picker_complete.png">
-<p>
+</p>
 
 ## Testing
 
