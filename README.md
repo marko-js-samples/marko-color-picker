@@ -500,6 +500,16 @@ Our final result:
   <img src="https://image.ibb.co/gcmLFk/color_picker_complete.png">
 </p>
 
+## Routing
+
+Routes can be specified by creating subdirectories under the `routes/` folder.
+The `routes/index` route is automatically registered as the index of the
+application. In a route directory, an `index.marko` or a `route.js` that
+exports a `handler` method may be created. [marko-starter](https://github.com/marko-js/marko-starter)
+is the underlying project that handles the routing. See the
+[marko-starter route documentation](https://github.com/marko-js/marko-starter#adding-pages)
+for more information.
+
 ## Testing
 
 `marko-devtools` comes packaged with testing frameworking built on top of
