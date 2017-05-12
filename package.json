@@ -1,7 +1,7 @@
 {
   "name": "marko-color-picker",
   "version": "0.0.2",
-  "description": "Demo of a color picker component in Marko",
+  "description": "Color Picker",
   "repository": {
     "type": "git",
     "url": "https://github.com/marko-js-samples/marko-color-picker"
