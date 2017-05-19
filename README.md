@@ -11,9 +11,11 @@ to build a color picker component from scratch. We are going to learn how to:
 
 Our final goal for today is create this component:
 
+<!-- <color-picker colors=['#333745','#E63462','#FE5F55','#C7EFCF','#EEF5DB','#00B4A6','#007DB6','#FFE972','#9C7671','#0C192B']/>() -->
 <p align="center">
   <img src="https://image.ibb.co/gcmLFk/color_picker_complete.png">
 </p>
+<!-- </> -->
 
 ## Getting Started
 
