@@ -515,7 +515,7 @@ for more information.
 ## Testing
 
 `marko-devtools` comes packaged with testing frameworking built on top of
-[mocha](https://mochajs.org/) We can easily add tests for our components, by
+[mocha](https://mochajs.org/). We can easily add tests for our components, by
 adding a `test.js` inside the directory of the component. First let's add a test
 assertion library [chai](http://chaijs.com/):
 
