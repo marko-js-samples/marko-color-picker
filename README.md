@@ -183,7 +183,7 @@ from the color picker and show the selected color's hex value
   <img src="https://image.ibb.co/kybsT5/color_picker_header.png">
 </p>
 
-- `<color-picker-footer>`: The footer will contain a pallete of colors and an
+- `<color-picker-footer>`: The footer will contain a palette of colors and an
 input field for changing the hex value of the header
 
 <p align="center">
@@ -277,7 +277,7 @@ which is great for creating variables that can be accessed inside of your
 template. Additionally, single file components support inline styles, so the
 component can truly be contained as a single unit if it's small enough.
 
-Now we need to revist our parent component and add the `<color-picker-header>`
+Now we need to revisit our parent component and add the `<color-picker-header>`
 tag to it, so it will be rendered.
 
 **components/color-picker/index.marko**
