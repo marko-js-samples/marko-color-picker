@@ -103,11 +103,11 @@ Let's begin by adding some initial component code to the `color-picker`.
 class {
     onInput(input) {
         input.colors = input.colors || [
-            'red',
-            'green',
-            'blue',
-            'orange',
-            'yellow'
+          '#ff0000',
+          '#008000',
+          '#0000ff',
+          '#ffa500',
+          '#ffff00'
         ];
 
         this.state = {
@@ -183,7 +183,7 @@ from the color picker and show the selected color's hex value
   <img src="https://image.ibb.co/kybsT5/color_picker_header.png">
 </p>
 
-- `<color-picker-footer>`: The footer will contain a pallete of colors and an
+- `<color-picker-footer>`: The footer will contain a palette of colors and an
 input field for changing the hex value of the header
 
 <p align="center">
@@ -231,7 +231,7 @@ class {
     // Set the current component state based on the background color passed
     // to the component as `input` or fall back to a default color.
     this.state = {
-      backgroundColor: input.backgroundColor || 'red'
+      backgroundColor: input.backgroundColor || '#ff0000'
     };
   }
 }
@@ -277,7 +277,7 @@ which is great for creating variables that can be accessed inside of your
 template. Additionally, single file components support inline styles, so the
 component can truly be contained as a single unit if it's small enough.
 
-Now we need to revist our parent component and add the `<color-picker-header>`
+Now we need to revisit our parent component and add the `<color-picker-header>`
 tag to it, so it will be rendered.
 
 **components/color-picker/index.marko**
@@ -285,11 +285,11 @@ tag to it, so it will be rendered.
 class {
   onInput(input) {
     input.colors = input.colors || [
-      'red',
-      'green',
-      'blue',
-      'orange',
-      'yellow'
+      '#ff0000',
+      '#008000',
+      '#0000ff',
+      '#ffa500',
+      '#ffff00'
     ];
 
     this.state = {
@@ -302,10 +302,10 @@ class {
 ```
 
 Navigating to [localhost:8080](http://localhost:8080), we should see the
-rendered `<color-picker-header>` with a red background like so:
+rendered `<color-picker-header>` with a gray background like so:
 
 <p align="center">
-  <img src="https://image.ibb.co/gpccBQ/Screenshot_from_2017_04_27_07_35_58.png">
+  <img src="https://image.ibb.co/kybsT5/color_picker_header.png">
 </p>
 
 Now let's create the `<color-picker-selection>` component, which will be used
@@ -315,7 +315,7 @@ inside of the `<color-picker-footer>`:
 ```marko
 class {
   onInput(input) {
-    input.backgroundColor = input.backgroundColor || 'green';
+    input.backgroundColor = input.backgroundColor || '#008000';
   }
   onColorSelected() {
     this.emit('colorSelected', this.input.backgroundColor);
@@ -403,7 +403,7 @@ function isValidHexValue (hexValue) {
 
 module.exports = {
   onInput (input) {
-    input.colors = input.colors || ['red', 'green', 'blue'];
+    input.colors = input.colors || ['#ff0000', '#008000', '#0000ff'];
   },
   onColorSelected (backgroundColor) {
     this.emit('colorSelected', backgroundColor);
@@ -466,11 +466,11 @@ component and add the `<color-picker-footer>`:
 class {
   onInput(input) {
     input.colors = input.colors || [
-      'red',
-      'green',
-      'blue',
-      'orange',
-      'yellow'
+      '#ff0000',
+      '#008000',
+      '#0000ff',
+      '#ffa500',
+      '#ffff00'
     ];
 
     this.state = {
@@ -508,9 +508,11 @@ Routes can be specified by creating subdirectories under the `routes/` folder.
 The `routes/index` route is automatically registered as the index of the
 application. In a route directory, an `index.marko` or a `route.js` that
 exports a `handler` method may be created. [marko-starter](https://github.com/marko-js/marko-starter)
-is the underlying project that handles the routing. See the
+is the underlying project that handles the routing, and automatically resolves routes from the `routes/` folder. See the
 [marko-starter route documentation](https://github.com/marko-js/marko-starter#adding-pages)
 for more information.
+
+Alternatively, having an `index.marko` file in the root directory of your project (e.g. `/marko-color-picker/index.marko`), will automatically get served as the index route's template.
 
 ## Testing
 
