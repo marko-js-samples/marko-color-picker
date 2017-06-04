@@ -302,10 +302,10 @@ class {
 ```
 
 Navigating to [localhost:8080](http://localhost:8080), we should see the
-rendered `<color-picker-header>` with a red background like so:
+rendered `<color-picker-header>` with a gray background like so:
 
 <p align="center">
-  <img src="https://image.ibb.co/gpccBQ/Screenshot_from_2017_04_27_07_35_58.png">
+  <img src="https://image.ibb.co/kybsT5/color_picker_header.png">
 </p>
 
 Now let's create the `<color-picker-selection>` component, which will be used
