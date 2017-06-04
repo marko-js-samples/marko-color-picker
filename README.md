@@ -508,9 +508,11 @@ Routes can be specified by creating subdirectories under the `routes/` folder.
 The `routes/index` route is automatically registered as the index of the
 application. In a route directory, an `index.marko` or a `route.js` that
 exports a `handler` method may be created. [marko-starter](https://github.com/marko-js/marko-starter)
-is the underlying project that handles the routing. See the
+is the underlying project that handles the routing, and automatically resolves routes from the `routes/` folder. See the
 [marko-starter route documentation](https://github.com/marko-js/marko-starter#adding-pages)
 for more information.
+
+Alternatively, having an `index.marko` file in the root directory of your project (e.g. `/marko-color-picker/index.marko`), will automatically get served as the index route's template.
 
 ## Testing
 
