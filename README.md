@@ -103,11 +103,11 @@ Let's begin by adding some initial component code to the `color-picker`.
 class {
     onInput(input) {
         input.colors = input.colors || [
-            'red',
-            'green',
-            'blue',
-            'orange',
-            'yellow'
+          '#ff0000',
+          '#008000',
+          '#0000ff',
+          '#ffa500',
+          '#ffff00'
         ];
 
         this.state = {
@@ -231,7 +231,7 @@ class {
     // Set the current component state based on the background color passed
     // to the component as `input` or fall back to a default color.
     this.state = {
-      backgroundColor: input.backgroundColor || 'red'
+      backgroundColor: input.backgroundColor || '#ff0000'
     };
   }
 }
@@ -285,11 +285,11 @@ tag to it, so it will be rendered.
 class {
   onInput(input) {
     input.colors = input.colors || [
-      'red',
-      'green',
-      'blue',
-      'orange',
-      'yellow'
+      '#ff0000',
+      '#008000',
+      '#0000ff',
+      '#ffa500',
+      '#ffff00'
     ];
 
     this.state = {
@@ -315,7 +315,7 @@ inside of the `<color-picker-footer>`:
 ```marko
 class {
   onInput(input) {
-    input.backgroundColor = input.backgroundColor || 'green';
+    input.backgroundColor = input.backgroundColor || '#008000';
   }
   onColorSelected() {
     this.emit('colorSelected', this.input.backgroundColor);
@@ -403,7 +403,7 @@ function isValidHexValue (hexValue) {
 
 module.exports = {
   onInput (input) {
-    input.colors = input.colors || ['red', 'green', 'blue'];
+    input.colors = input.colors || ['#ff0000', '#008000', '#0000ff'];
   },
   onColorSelected (backgroundColor) {
     this.emit('colorSelected', backgroundColor);
@@ -466,11 +466,11 @@ component and add the `<color-picker-footer>`:
 class {
   onInput(input) {
     input.colors = input.colors || [
-      'red',
-      'green',
-      'blue',
-      'orange',
-      'yellow'
+      '#ff0000',
+      '#008000',
+      '#0000ff',
+      '#ffa500',
+      '#ffff00'
     ];
 
     this.state = {
