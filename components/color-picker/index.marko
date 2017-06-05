@@ -1,12 +1,8 @@
+import colors from './util/colors';
+
 class {
   onInput(input) {
-    input.colors = input.colors || [
-      '#ff0000',
-      '#008000',
-      '#0000ff',
-      '#ffa500',
-      '#ffff00'
-    ];
+    input.colors = input.colors || colors();
 
     this.state = {
       backgroundColor: input.colors[0]
@@ -18,5 +14,5 @@ class {
   }
 }
 
-<color-picker-header backgroundColor=state.backgroundColor/>
+<color-picker-header background-color=state.backgroundColor/>
 <color-picker-footer colors=input.colors on-colorSelected('onColorSelected')/>

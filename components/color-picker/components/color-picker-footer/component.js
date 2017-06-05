@@ -1,10 +1,12 @@
+const colors = require('../../util/colors');
+
 function isValidHexValue (hexValue) {
   return /^#[0-9A-F]{6}$/i.test(hexValue);
 }
 
 module.exports = {
   onInput (input) {
-    input.colors = input.colors || ['red', 'green', 'blue'];
+    input.colors = input.colors || colors();
   },
   onColorSelected (backgroundColor) {
     this.emit('colorSelected', backgroundColor);

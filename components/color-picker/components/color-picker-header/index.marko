@@ -1,7 +1,9 @@
+import colors from '../../util/colors';
+
 class {
   onInput(input) {
     this.state = {
-      backgroundColor: input.backgroundColor || '#ff0000'
+      backgroundColor: input.backgroundColor || colors()[0]
     };
   }
 }

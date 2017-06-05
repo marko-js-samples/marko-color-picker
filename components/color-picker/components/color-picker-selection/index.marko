@@ -1,6 +1,8 @@
+import colors from '../../util/colors';
+
 class {
   onInput(input) {
-    input.backgroundColor = input.backgroundColor || '#008000';
+    input.backgroundColor = input.backgroundColor || colors()[0];
   }
   onColorSelected() {
     this.emit('colorSelected', this.input.backgroundColor);

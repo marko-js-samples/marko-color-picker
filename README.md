@@ -91,10 +91,10 @@ color-picker-tutorial/
     color-picker.style.css
 ```
 
-Creating nested component directories is not required. **We recommend** isolating
-most components in their own directories. Many components will contain additional
-files and tests that live alongside the component. Too many components living
-in a single directory will become very untidy and difficult to manage.
+Creating nested component directories is not required*, but we* recommend
+isolating most components in their own directories. Many components will contain
+additional files and tests that live alongside the component. Too many components
+living in a single directory will become very untidy and difficult to manage.
 
 Let's begin by adding some initial component code to the `color-picker`.
 
@@ -159,7 +159,7 @@ to our component. If a `colors` attribute is not passed to the component as
 `input`, our component automatically falls back to a default set of colors:
 
 ```marko
-<!-- Colors default to red, green, blue, orange, yellow -->
+<!-- Use default colors when none specified -->
 <color-picker/>
 ```
 
@@ -191,12 +191,11 @@ input field for changing the hex value of the header
 </p>
 
 `<color-picker-selection>`: The selection component is responsible for
-displaying an individual color box and the associated click events
+displaying an individual color box and handling the associated click events
 
 <p align="center">
   <img src="https://image.ibb.co/nRvxvk/color_picker_selection.png">
 </p>
-
 
 Marko automatically registers all components in a nested `components/`
 directories. Our new directory structure should look like this:
@@ -272,7 +271,7 @@ Now let's look at what's going on. Marko has several
 [lifecycle methods](http://markojs.com/docs/components/#lifecycle) including
 `onInput`, which contains a single parameter `input`. As we discussed before
 `input` is the data that is passed to a Marko component upon initialization.
-We can use inline javascript easily with `$` or `$ { /* ... */ }` for blocks,
+We can use inline javascript easily with `$` or `$ { /* ... */ }` (for multiple statements),
 which is great for creating variables that can be accessed inside of your
 template. Additionally, single file components support inline styles, so the
 component can truly be contained as a single unit if it's small enough.
@@ -298,7 +297,7 @@ class {
   }
 }
 
-<color-picker-header backgroundColor=state.backgroundColor/>
+<color-picker-header background-color=state.backgroundColor/>
 ```
 
 Navigating to [localhost:8080](http://localhost:8080), we should see the
@@ -375,7 +374,7 @@ $ var colors = input.colors;
       the <color-picker-selection> component and handle
       it in this component's `onColorSelected` method.
       -->
-      <color-picker-selection backgroundColor=color on-colorSelected('onColorSelected')/>
+      <color-picker-selection background-color=color on-colorSelected('onColorSelected')/>
     </div>
     <input
       key="hexInput"
@@ -486,7 +485,7 @@ class {
   }
 }
 
-<color-picker-header backgroundColor=state.backgroundColor/>
+<color-picker-header background-color=state.backgroundColor/>
 <color-picker-footer colors=input.colors on-colorSelected('onColorSelected')/>
 ```
 
@@ -496,11 +495,70 @@ event emitted from `<color-picker-footer>`. When we handle this event, we
 update the `state` of the `<color-picker>` component, which is passed to
 the `<color-picker-header>`.
 
-Our final result:
+Congratulations! You have finished your first Marko component! Now let's talk
+about some additional topics that will turn you into a Marko pro!
+
+Our finished product:
 
 <!-- <color-picker colors=['#333745','#E63462','#FE5F55','#C7EFCF','#EEF5DB','#00B4A6','#007DB6','#FFE972','#9C7671','#0C192B']/>() -->
 <p align="center">
   <img src="https://image.ibb.co/gcmLFk/color_picker_complete.png">
+</p>
+<!-- </> -->
+
+--------------
+
+## Importing Modules
+
+Marko also supports importing modules. We can easily import a module using
+the `import` syntax you're used to in JavaScript for single file components.
+Let's fetch the default `<color-picker>` colors from an external module:
+
+```bash
+npm install flat-colors --save
+```
+
+**components/color-picker/util/colors.js**
+```js
+var flatColors = require('flat-colors').colors;
+
+module.exports = function getColors () {
+  var colors = [];
+  for (var i = 0; i < 10; i++) {
+    colors.push(flatColors[i][3]);
+  }
+  return colors;
+};
+```
+
+**components/color-picker/index.marko**
+```marko
+import colors from './util/colors';
+
+class {
+  onInput(input) {
+    input.colors = input.colors || colors();
+
+    this.state = {
+      backgroundColor: input.colors[0]
+    };
+  }
+
+  onColorSelected(backgroundColor) {
+    this.state.backgroundColor = backgroundColor;
+  }
+}
+
+<color-picker-header background-color=state.backgroundColor/>
+<color-picker-footer colors=input.colors on-colorSelected('onColorSelected')/>
+```
+
+If we do not pass `colors` to the `<color-picker>`, the colors will default
+to the colors obtained from `flat-colors`:
+
+<!-- <color-picker/>() -->
+<p align="center">
+  <img src="http://image.ibb.co/k9pYLv/Screen_Shot_2017_06_05_at_5_08_55_PM.png">
 </p>
 <!-- </> -->
 
@@ -586,3 +644,9 @@ today!
 - [marko-color-picker](https://github.com/marko-js-samples/marko-color-picker)
 - [marko color picker try-online](http://markojs.com/try-online/?file=%2Fcolor-picker%2Findex.marko&gist=)
 - [marko-devtools](https://github.com/marko-js/marko-devtools)
+
+## Special Thanks
+
+Special thanks to these people for helping with the tutorial:
+
+* [Anthony Ng](https://github.com/newyork-anthonyng)

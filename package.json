@@ -14,6 +14,8 @@
     "marko-devtools": "^1.0.2"
   },
   "dependencies": {
+    "flat-colors": "^3.3.7",
+    "flat-ui-colors": "^2.1.8",
     "marko": "^4.2.4",
     "marko-starter": "^1.0.0"
   },

@@ -1,3 +1,5 @@
 {
-  "tags-dir": "./components"
+  // This is not normally necessary. We only are using this for loading external
+  // components into the markojs-website from markdown files.
+  "tags-dir": ["./components", "./components/color-picker/components"]
 }

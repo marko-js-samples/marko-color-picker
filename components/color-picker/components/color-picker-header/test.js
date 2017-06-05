@@ -1,5 +1,6 @@
 /* global test */
 const expect = require('chai').expect;
+const colors = require('../../util/colors');
 
 test('color-picker-header color', function (context) {
   const output = context.render({
@@ -11,5 +12,6 @@ test('color-picker-header color', function (context) {
 
 test('color-picker-header default color', function (context) {
   const output = context.render();
-  expect(output.$('div').attr('style')).to.contain('background-color:#ff0000');
+  const expectedColor = colors()[0];
+  expect(output.$('div').attr('style')).to.contain('background-color:' + expectedColor);
 });
