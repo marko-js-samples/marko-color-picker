@@ -498,9 +498,11 @@ the `<color-picker-header>`.
 
 Our final result:
 
+<!-- <color-picker colors=['#333745','#E63462','#FE5F55','#C7EFCF','#EEF5DB','#00B4A6','#007DB6','#FFE972','#9C7671','#0C192B']/>() -->
 <p align="center">
   <img src="https://image.ibb.co/gcmLFk/color_picker_complete.png">
 </p>
+<!-- </> -->
 
 ## Routing
 
@@ -584,5 +586,3 @@ today!
 - [marko-color-picker](https://github.com/marko-js-samples/marko-color-picker)
 - [marko color picker try-online](http://markojs.com/try-online/?file=%2Fcolor-picker%2Findex.marko&gist=)
 - [marko-devtools](https://github.com/marko-js/marko-devtools)
-
-
