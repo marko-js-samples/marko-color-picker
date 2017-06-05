@@ -179,23 +179,29 @@ Let's split our component into the following components:
 - `<color-picker-header>`: The header will have the selected background color
 from the color picker and show the selected color's hex value
 
+<!-- <color-picker-header background-color='#333745'/>() -->
 <p align="center">
   <img src="https://image.ibb.co/kybsT5/color_picker_header.png">
 </p>
+<!-- </> -->
 
 - `<color-picker-footer>`: The footer will contain a palette of colors and an
 input field for changing the hex value of the header
 
+<!-- <color-picker-footer colors=['#333745','#E63462','#FE5F55','#C7EFCF','#EEF5DB','#00B4A6','#007DB6','#FFE972','#9C7671','#0C192B']/>() -->
 <p align="center">
   <img src="https://image.ibb.co/kjiT1Q/color_picker_footer.png">
 </p>
+<!-- </> -->
 
 `<color-picker-selection>`: The selection component is responsible for
 displaying an individual color box and handling the associated click events
 
+<!-- <color-picker-selection backgroundColor='#333745'/>() -->
 <p align="center">
   <img src="https://image.ibb.co/nRvxvk/color_picker_selection.png">
 </p>
+<!-- </> -->
 
 Marko automatically registers all components in a nested `components/`
 directories. Our new directory structure should look like this:
@@ -303,9 +309,11 @@ class {
 Navigating to [localhost:8080](http://localhost:8080), we should see the
 rendered `<color-picker-header>` with a gray background like so:
 
+<!-- <color-picker-header background-color='#333745'/>() -->
 <p align="center">
   <img src="https://image.ibb.co/kybsT5/color_picker_header.png">
 </p>
+<!-- </> -->
 
 Now let's create the `<color-picker-selection>` component, which will be used
 inside of the `<color-picker-footer>`:
