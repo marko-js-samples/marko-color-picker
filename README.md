@@ -164,7 +164,7 @@ to our component. If a `colors` attribute is not passed to the component as
 ```
 
 <p align="center">
-  <img src="https://image.ibb.co/dQdCd5/Screenshot_from_2017_04_27_07_38_23.png">
+  <img src="http://image.ibb.co/nLTkYF/Screen_Shot_2017_06_06_at_8_23_36_AM.png">
 </p>
 
 ### Child Components
