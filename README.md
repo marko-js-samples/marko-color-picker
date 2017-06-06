@@ -163,9 +163,11 @@ to our component. If a `colors` attribute is not passed to the component as
 <color-picker/>
 ```
 
+<!-- <color-list />() -->
 <p align="center">
   <img src="http://image.ibb.co/nLTkYF/Screen_Shot_2017_06_06_at_8_23_36_AM.png">
 </p>
+<!-- </> -->
 
 ### Child Components
 
