@@ -17,7 +17,7 @@ Our final goal for today is create this component:
 </p>
 <!-- </> -->
 
-[Try Online: marko-color-picker](http://markojs.com/try-online/?file=%2Fcolor-picker%2Findex.marko)
+[Try Online](http://markojs.com/try-online/?file=%2Fmarko-color-picker%2Findex.marko)
 
 ## Getting Started
 
@@ -617,8 +617,8 @@ today!
 
 ## Additional Resources
 
-- [marko-color-picker](https://github.com/marko-js-samples/marko-color-picker)
-- [Try Online: marko-color-picker](http://markojs.com/try-online/?file=%2Fcolor-picker%2Findex.marko)
+- [GitHub: marko-color-picker](https://github.com/marko-js-samples/marko-color-picker)
+- [Try Online: Color Picker](http://markojs.com/try-online/?file=%2Fmarko-color-picker%2Findex.marko)
 - [marko-devtools](https://github.com/marko-js/marko-devtools)
 
 --------------
