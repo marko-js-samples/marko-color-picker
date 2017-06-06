@@ -535,6 +535,8 @@ to the colors obtained from `flat-colors`:
 </p>
 <!-- </> -->
 
+[Try Online: marko-color-picker](http://markojs.com/try-online/?file=%2Fcolor-picker%2Findex.marko)
+
 ## Routing
 
 Routes can be specified by creating subdirectories under the `routes/` folder.
