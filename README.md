@@ -1,5 +1,9 @@
 # Building a Color Picker Component
 
+<p align="center">
+  <img width="100%" src="https://user-images.githubusercontent.com/3771924/26844826-b2334098-4ac2-11e7-81ac-ca2280ef3bbd.png">
+</p>
+
 ## Introduction
 
 Marko makes building UI components extremely easy and fun! Today we are going
