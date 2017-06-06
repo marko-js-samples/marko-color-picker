@@ -259,11 +259,20 @@ tag to it, so it will be rendered.
 
 **components/color-picker/index.marko**
 ```marko
-import getColors from './util/getColors';
-
 class {
   onInput(input) {
-    var colors = input.colors || getColors();
+    var colors = input.colors || [
+      '#333745',
+      '#E63462',
+      '#FE5F55',
+      '#C7EFCF',
+      '#EEF5DB',
+      '#00B4A6',
+      '#007DB6',
+      '#FFE972',
+      '#9C7671',
+      '#0C192B'
+    ];
 
     this.state = {
       selectedColor: colors[0],
