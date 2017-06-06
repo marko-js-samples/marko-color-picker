@@ -222,6 +222,7 @@ style {
   }
   .color-picker-header > p {
     padding-top: 1.15em;
+    margin: 0;
   }
 }
 
