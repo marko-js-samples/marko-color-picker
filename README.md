@@ -1,4 +1,4 @@
-# Color Picker Tutorial
+# Building a Color Picker Component
 
 ## Introduction
 
