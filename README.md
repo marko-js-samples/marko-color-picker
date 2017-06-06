@@ -311,12 +311,13 @@ style {
 
 <div.color-picker-selection
   on-click('onColorSelected')
+  on-touchstart('onColorSelected')
   style={
     backgroundColor: input.color
   }/>
 ```
 
-In this component, we've introduced an `on-click` listener and handler function.
+In this component, we've introduced `on-click` and `on-touchstart` listeners and a single event handler function.
 [Marko components inherit from EventEmitter](http://markojs.com/docs/components/#events).
 When this color is selected, it will emit an event and get handled by the
 `onColorSelected` function. The handler then emits a `colorSelected` event to be handled by its parent. We will eventually write code to relay this information back to the `<color-picker-header>`, so its background
