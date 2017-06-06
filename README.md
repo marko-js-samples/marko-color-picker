@@ -261,27 +261,12 @@ tag to it, so it will be rendered.
 ```marko
 class {
   onInput(input) {
-    var colors = input.colors || [
-      '#333745',
-      '#E63462',
-      '#FE5F55',
-      '#C7EFCF',
-      '#EEF5DB',
-      '#00B4A6',
-      '#007DB6',
-      '#FFE972',
-      '#9C7671',
-      '#0C192B'
-    ];
+    var colors = input.colors;
 
     this.state = {
       selectedColor: colors[0],
       colors
     };
-  }
-
-  onColorSelected(color) {
-    this.state.selectedColor = color;
   }
 }
 
