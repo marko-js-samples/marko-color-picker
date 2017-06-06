@@ -3,7 +3,15 @@ $ var colors = input.colors;
 <div.color-picker-footer>
   <div.color-picker-selection-container>
     <div for(color in colors)>
-      <color-picker-selection background-color=color on-colorSelected('onColorSelected')/>
+      <!--
+      Listen for the `colorSelected` event emitted from the
+      <color-picker-selection> component and handle it in this
+      component's `onColorSelected` method.
+      NOTE: We pass along the `color` to the event handler method
+      -->
+      <color-picker-selection
+        color=color
+        on-colorSelected('onColorSelected', color)/>
     </div>
     <input
       key="hexInput"

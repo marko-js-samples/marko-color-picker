@@ -1,15 +1,4 @@
-import colors from '../../util/colors';
-
-class {
-  onInput(input) {
-    this.state = {
-      backgroundColor: input.backgroundColor || colors()[0]
-    };
-  }
-}
-
-$ var backgroundColor = state.backgroundColor;
-
+// Inline styles!
 style {
   .color-picker-header {
     width: 200px;
@@ -22,10 +11,15 @@ style {
     color: white;
   }
   .color-picker-header > p {
-    margin-top: 1.15em;
+    padding-top: 1.15em;
   }
 }
 
-<div.color-picker-header style={backgroundColor}>
-  <p>${backgroundColor}</p>
+// In Marko, we immediately start writing a single JavaScript statement by using
+// `$`. For multiple JavaScript statements, use `$ { /* JavaScript here */ }
+$ var color = input.color;
+
+<!-- Our markup! -->
+<div.color-picker-header style={backgroundColor: color}>
+  <p>${color}</p>
 </div>

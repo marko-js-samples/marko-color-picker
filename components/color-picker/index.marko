@@ -1,18 +1,21 @@
-import colors from './util/colors';
+import getColors from './util/getColors';
 
 class {
   onInput(input) {
-    input.colors = input.colors || colors();
+    var colors = input.colors || getColors();
 
     this.state = {
-      backgroundColor: input.colors[0]
+      selectedColor: colors[0],
+      colors
     };
   }
 
-  onColorSelected(backgroundColor) {
-    this.state.backgroundColor = backgroundColor;
+  onColorSelected(color) {
+    this.state.selectedColor = color;
   }
 }
 
-<color-picker-header background-color=state.backgroundColor/>
-<color-picker-footer colors=input.colors on-colorSelected('onColorSelected')/>
+<div>
+  <color-picker-header color=state.selectedColor/>
+  <color-picker-footer colors=state.colors on-colorSelected('onColorSelected')/>
+</div>

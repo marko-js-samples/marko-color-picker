@@ -1,11 +1,6 @@
-import colors from '../../util/colors';
-
 class {
-  onInput(input) {
-    input.backgroundColor = input.backgroundColor || colors()[0];
-  }
   onColorSelected() {
-    this.emit('colorSelected', this.input.backgroundColor);
+    this.emit('colorSelected');
   }
 }
 
@@ -21,6 +16,8 @@ style {
   }
 }
 
-<div.color-picker-selection on-click('onColorSelected') style={
-  backgroundColor: input.backgroundColor
-}></div>
+<div.color-picker-selection
+  on-click('onColorSelected')
+  style={
+    backgroundColor: input.color
+  }/>
