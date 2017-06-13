@@ -1,3 +1,5 @@
+'use strict';
+
 const flatColors = require('flat-colors').colors;
 
 const HEX_INDEX = 3;
