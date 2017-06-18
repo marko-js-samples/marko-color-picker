@@ -13,7 +13,7 @@ to build a color picker component from scratch. We are going to learn how to:
 - Create a basic and customizable color picker component
 - Write component tests using [marko-devtools](https://github.com/marko-js/marko-devtools)
 
-Our final goal for today is create this component:
+Our final goal for today is to create this component:
 
 <!-- <color-picker colors=['#333745','#E63462','#FE5F55','#C7EFCF','#EEF5DB','#00B4A6','#007DB6','#FFE972','#9C7671','#0C192B']/>() -->
 <p align="center">
@@ -178,7 +178,7 @@ input field for changing the hex value of the header
 </p>
 <!-- </> -->
 
-`<color-picker-selection>`: The selection component is responsible for
+- `<color-picker-selection>`: The selection component is responsible for
 displaying an individual color box and handling the associated click events
 
 <!-- <color-picker-selection color='#333745'/>() -->
@@ -364,7 +364,7 @@ $ var colors = input.colors;
 </div>
 ```
 
-In the `<color-picker-footer>` component we need to iterate over each color that was passed as input in `colors`. For each color, we create a `<color-picker-selection>` component and pass the color using the `color` attribute. Additionally, we are listening for the `colorSelected` event emitted from the `<color-picker-selection>` component and handling it in our own `onColorSelected` method. We provide the `color` as the second argument so that it will be available to the event handler method. We also have added an `input` field and a `on-input` listener, which will trigger a change to the selected color when the user manually enters a hex color value.
+In the `<color-picker-footer>` component we need to iterate over each color that was passed as input in `colors`. For each color, we create a `<color-picker-selection>` component and pass the color using the `color` attribute. Additionally, we are listening for the `colorSelected` event emitted from the `<color-picker-selection>` component and handling it in our own `onColorSelected` method. We provide the `color` as the second argument so that it will be available to the event handler method. We also have added an `input` field and an `on-input` listener, which will trigger a change to the selected color when the user manually enters a hex color value.
 
 **components/color-picker/components/color-picker-footer/component.js**
 ```javascript
@@ -394,7 +394,7 @@ module.exports = class {
 
 When the component logic is split out from the `index.marko` it needs to be
 exported like a standard JavaScript module. We have an `onColorSelected`
-event handler, which is going to emit the event back up to the parent `<color-picker-header>` component. We also have an `onHexInput` event handler
+event handler, which is going to emit the event back up to the parent `<color-picker>` component. We also have an `onHexInput` event handler
 with some basic validation logic. `onHexInput` also emits `colorSelected`, which
 will be handled the same way as the `colorSelected` event when it reaches
 `<color-picker-header>`.
@@ -452,7 +452,7 @@ class {
 ```
 
 Finally, we've added our `<color-picker-footer>`, passed the `state.colors`
-as `input` to it, added a `onColorSelected` event handler for the `colorSelected`
+as `input` to it, added an `onColorSelected` event handler for the `colorSelected`
 event emitted from `<color-picker-footer>`. When we handle this event, we
 update the `state` of the `<color-picker>` component, which is passed to
 the `<color-picker-header>`.
