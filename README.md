@@ -585,6 +585,39 @@ test('color-picker-header class included', function (context) {
 });
 ```
 
+Here is another example of a test for `<color-picker-selection>`:
+
+**components/color-picker/components/color-picker-selection/test.js**
+```javascript
+/* global test */
+const expect = require('chai').expect;
+
+test('color-picker-selection color', function (context) {
+  const output = context.render({
+    color: '#ff8080'
+  });
+
+  expect(output.$('div').attr('style')).to.contain('background-color:#ff8080');
+});
+
+test('color-picker-selection when clicked should emit colorSelected event', function (context) {
+  const output = context.render({
+    color: '#ff8080'
+  });
+
+  var component = output.component;
+  var isCalled = false;
+  component.on('colorSelected', function () {
+    isCalled = true;
+  });
+
+  var componentEl = component.el;
+  componentEl.click();
+
+  expect(isCalled).to.equal(true);
+});
+```
+
 Let's add a `test` script to our `package.json`:
 
 ```json
