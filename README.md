@@ -119,12 +119,10 @@ parent component can use our `color-picker`:
 
 **routes/index/index.marko**
 ```marko
-<html>
-  <head>
-    <title>Welcome | Marko Demo</title>
-  </head>
-  <body>
-    <h1>Welcome to Marko!</h1>
+<site-layout>
+  <@title>Welcome | Marko Demo</@title>
+  <@content>
+    <h1>Welcome to Marko!</h2>
     <color-picker colors=[
       '#333745',
       '#E63462',
@@ -137,8 +135,8 @@ parent component can use our `color-picker`:
       '#9C7671',
       '#0C192B'
     ]/>
-  </body>
-</html>
+  </@content>
+</site-layout>
 ```
 
 Navigating to [localhost:8080](http://localhost:8080) should show us an
@@ -319,7 +317,7 @@ style {
 
 In this component, we've introduced `on-click` and `on-touchstart` listeners and a single event handler function.
 [Marko components inherit from EventEmitter](http://markojs.com/docs/components/#events).
-When this color is selected, it will emit an event and get handled by the
+When this color is selected, it will emit a `click` event and get handled by the
 `onColorSelected` function. The handler then emits a `colorSelected` event to be handled by its parent. We will eventually write code to relay this information back to the `<color-picker-header>`, so its background
 color and text can be changed.
 
