@@ -9,9 +9,9 @@
 Marko makes building UI components extremely easy and fun! Today we are going
 to build a color picker component from scratch. We are going to learn how to:
 
-- Create a project using [marko-devtools](https://github.com/marko-js/marko-devtools)
+- Create a project using [marko-cli](https://github.com/marko-js/marko-cli)
 - Create a basic and customizable color picker component
-- Write component tests using [marko-devtools](https://github.com/marko-js/marko-devtools)
+- Write component tests using [marko-cli](https://github.com/marko-js/marko-cli)
 
 Our final goal for today is create this component:
 
@@ -25,25 +25,25 @@ Our final goal for today is create this component:
 
 ## Getting Started
 
-[marko-devtools](https://github.com/marko-js/marko-devtools) comes packaged with
+[marko-cli](https://github.com/marko-js/marko-cli) comes packaged with
 useful commands for building Marko projects. Projects created using
-[marko-devtools](https://github.com/marko-js/marko-devtools) come bundled with
+[marko-cli](https://github.com/marko-js/marko-cli) come bundled with
 an HTTP server, and a build pipeline using [lasso](https://github.com/lasso-js/lasso)
 making it very easy to get started.
 
-Let's first install [marko-devtools](https://github.com/marko-js/marko-devtools)
+Let's first install [marko-cli](https://github.com/marko-js/marko-cli)
 globally, so we can create our project:
 
 Using `npm`:
 
 ```bash
-npm install -g marko-devtools
+npm install -g marko-cli
 ```
 
 Using `yarn`:
 
 ```bash
-yarn global add marko-devtools
+yarn global add marko-cli
 ```
 
 Now we are ready to create our Marko project:
@@ -551,7 +551,7 @@ Alternatively, having an `index.marko` file in the root directory of your projec
 
 ## Testing
 
-`marko-devtools` comes packaged with testing frameworking built on top of
+`marko-cli` comes packaged with testing frameworking built on top of
 [mocha](https://mochajs.org/). We can easily add tests for our components, by
 adding a `test.js` inside the directory of the component. First let's add a test
 assertion library [chai](http://chaijs.com/):
@@ -580,7 +580,7 @@ test('color-picker-header class included', function (context) {
   const output = context.render({
     color: '#000000'
   });
-
+ 
   expect(output.$('div').attr('class')).to.equal('color-picker-header');
 });
 ```
@@ -637,7 +637,7 @@ npm test
 ```
 
 More information about Marko component testing can be found in the
-[marko-devtools component testing](https://github.com/marko-js/marko-devtools#component-testing)
+[marko-cli component testing](https://github.com/marko-js/marko-cli#component-testing)
 documentation.
 
 ## Conclusion
@@ -654,7 +654,7 @@ today!
 
 - [GitHub: marko-color-picker](https://github.com/marko-js-samples/marko-color-picker)
 - [Try Online: Color Picker](http://markojs.com/try-online/?file=%2Fmarko-color-picker%2Findex.marko)
-- [marko-devtools](https://github.com/marko-js/marko-devtools)
+- [marko-cli](https://github.com/marko-js/marko-cli)
 
 --------------
 
