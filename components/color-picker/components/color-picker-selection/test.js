@@ -1,27 +1,25 @@
 /* global test */
-const expect = require('chai').expect;
+const { expect } = require('chai');
 
 test('color-picker-selection color', function (context) {
-  const output = context.render({
+  const { component } = context.render({
     color: '#ff8080'
   });
 
-  expect(output.$('div').attr('style')).to.contain('background-color:#ff8080');
+  expect(component.el.getAttribute('style')).to.contain('background-color:#ff8080');
 });
 
 test('color-picker-selection when clicked should emit colorSelected event', function (context) {
-  const output = context.render({
+  const { component } = context.render({
     color: '#ff8080'
   });
 
-  var component = output.component;
-  var isCalled = false;
+  let isCalled = false;
   component.on('colorSelected', function () {
     isCalled = true;
   });
 
-  var componentEl = component.el;
-  componentEl.click();
+  component.el.click();
 
   expect(isCalled).to.equal(true);
 });
