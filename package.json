@@ -11,7 +11,7 @@
     "chai": "^3.5.0",
     "eslint": "^3.13.0",
     "eslint-config-marko": "^1.0.1",
-    "marko-devtools": "^1.0.2"
+    "marko-cli": "^2.2.0"
   },
   "dependencies": {
     "flat-colors": "^3.3.7",

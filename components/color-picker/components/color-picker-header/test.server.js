@@ -1,5 +1,5 @@
 /* global test */
-const expect = require('chai').expect;
+const { expect } = require('chai');
 
 test('color-picker-header color', function (context) {
   const output = context.render({
