@@ -1,4 +1,4 @@
-// Inline styles!
+<!-- Inline styles! -->
 style {
   .color-picker-header {
     width: 200px;
@@ -16,11 +16,13 @@ style {
   }
 }
 
-// In Marko, we immediately start writing a single JavaScript statement by using
-// `$`. For multiple JavaScript statements, use `$ { /* JavaScript here */ }
-$ var color = input.color;
+<!--
+In Marko, we immediately start writing a single JavaScript statement by using
+`$`. For multiple JavaScript statements, use `$ { /* JavaScript here */ }
+-->
 
-<!-- Our markup! -->
-<div.color-picker-header style={backgroundColor: color}>
+$ const { color } = input;
+
+<div.color-picker-header style={ backgroundColor: color }>
   <p>${color}</p>
 </div>

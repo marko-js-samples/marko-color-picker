@@ -1,6 +1,6 @@
 class {
-  onColorSelected() {
-    this.emit('colorSelected');
+  handleColorSelected() {
+    this.emit("color-selected");
   }
 }
 
@@ -17,8 +17,8 @@ style {
 }
 
 <div.color-picker-selection
-  on-click('onColorSelected')
-  on-touchstart('onColorSelected')
+  on-click("handleColorSelected")
+  on-touchstart("handleColorSelected")
   style={
     backgroundColor: input.color
   }/>

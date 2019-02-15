@@ -1,4 +1,4 @@
-import getColors from './util/getColors';
+import getColors from './util/getColors'
 
 class {
   onInput(input) {
@@ -10,12 +10,12 @@ class {
     };
   }
 
-  onColorSelected(color) {
+  handleColorSelected(color) {
     this.state.selectedColor = color;
   }
 }
 
 <div>
   <color-picker-header color=state.selectedColor/>
-  <color-picker-footer colors=state.colors on-colorSelected('onColorSelected')/>
+  <color-picker-footer colors=state.colors on-color-selected("handleColorSelected")/>
 </div>

@@ -1,14 +1,10 @@
 'use strict';
 
-function isValidHexValue (hexValue) {
-  return /^#[0-9A-F]{6}$/i.test(hexValue);
-}
-
 module.exports = class {
-  onColorSelected (color) {
-    this.emit('colorSelected', color);
+  handleColorSelected (color) {
+    this.emit('color-selected', color);
   }
-  onHexInput () {
+  handleHexInput () {
     let hexInput = this.getEl('hexInput').value;
 
     if (!hexInput.startsWith('#')) {
@@ -19,6 +15,10 @@ module.exports = class {
       hexInput = this.input.colors[0];
     }
 
-    this.emit('colorSelected', hexInput);
+    this.emit('color-selected', hexInput);
   }
 };
+
+function isValidHexValue (hexValue) {
+  return /^#[0-9A-F]{6}$/i.test(hexValue);
+}

@@ -9,14 +9,14 @@ test('color-picker-selection color', function (context) {
   expect(output.$('div').attr('style')).to.contain('background-color:#ff8080');
 });
 
-test('color-picker-selection when clicked should emit colorSelected event', function (context) {
+test('color-picker-selection when clicked should emit color-selected event', function (context) {
   const output = context.render({
     color: '#ff8080'
   });
 
   var component = output.component;
   var isCalled = false;
-  component.on('colorSelected', function () {
+  component.on('color-selected', function () {
     isCalled = true;
   });
 

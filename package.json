@@ -11,13 +11,13 @@
     "chai": "^3.5.0",
     "eslint": "^3.13.0",
     "eslint-config-marko": "^1.0.1",
-    "marko-devtools": "^1.0.2"
+    "marko-cli": "^6.0.3"
   },
   "dependencies": {
-    "flat-colors": "^3.3.7",
+    "flat-colors": "^3.3.11",
     "flat-ui-colors": "^2.1.8",
-    "marko": "^4.4.28",
-    "marko-starter": "^2.0.1"
+    "marko": "^4.15.0",
+    "marko-starter": "^2.0.4"
   },
   "scripts": {
     "start": "marko-starter server",

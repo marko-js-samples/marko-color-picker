@@ -105,7 +105,7 @@ Let's begin by adding some initial component code to the `color-picker`.
 **components/color-picker/index.marko**
 ```marko
 <ul>
-  <for(color in input.colors)>
+  <for|color| of=input.colors>
     <li style={color: color}>
       ${color}
     </li>
@@ -292,8 +292,8 @@ inside of the `<color-picker-footer>`:
 **components/color-picker/components/color-picker-selection/index.marko**
 ```marko
 class {
-  onColorSelected() {
-    this.emit('colorSelected');
+  handleColorSelected() {
+    this.emit('color-selected');
   }
 }
 
@@ -310,8 +310,8 @@ style {
 }
 
 <div.color-picker-selection
-  on-click('onColorSelected')
-  on-touchstart('onColorSelected')
+  on-click('handleColorSelected')
+  on-touchstart('handleColorSelected')
   style={
     backgroundColor: input.color
   }/>
@@ -320,7 +320,7 @@ style {
 In this component, we've introduced `on-click` and `on-touchstart` listeners and a single event handler function.
 [Marko components inherit from EventEmitter](http://markojs.com/docs/components/#events).
 When this color is selected, it will emit a `click` event and get handled by the
-`onColorSelected` function. The handler then emits a `colorSelected` event to be handled by its parent. We will eventually write code to relay this information back to the `<color-picker-header>`, so its background
+`handleColorSelected` function. The handler then emits a `color-selected` event to be handled by its parent. We will eventually write code to relay this information back to the `<color-picker-header>`, so its background
 color and text can be changed.
 
 We are ready to create our final component, `<color-picker-footer>`. This
@@ -347,36 +347,32 @@ $ var colors = input.colors;
   <div.color-picker-selection-container>
     <div for(color in colors)>
       <!--
-      Listen for the `colorSelected` event emitted from the
+      Listen for the `color-selected` event emitted from the
       <color-picker-selection> component and handle it in this
-      component's `onColorSelected` method.
+      component's `handleColorSelected` method.
       NOTE: We pass along the `color` to the event handler method
       -->
       <color-picker-selection
         color=color
-        on-colorSelected('onColorSelected', color)/>
+        on-color-selected('handleColorSelected', color)/>
     </div>
     <input
       key="hexInput"
       placeholder="Hex value"
-      on-input('onHexInput')/>
+      on-input('handleHexInput')/>
   </div>
 </div>
 ```
 
-In the `<color-picker-footer>` component we need to iterate over each color that was passed as input in `colors`. For each color, we create a `<color-picker-selection>` component and pass the color using the `color` attribute. Additionally, we are listening for the `colorSelected` event emitted from the `<color-picker-selection>` component and handling it in our own `onColorSelected` method. We provide the `color` as the second argument so that it will be available to the event handler method. We also have added an `input` field and a `on-input` listener, which will trigger a change to the selected color when the user manually enters a hex color value.
+In the `<color-picker-footer>` component we need to iterate over each color that was passed as input in `colors`. For each color, we create a `<color-picker-selection>` component and pass the color using the `color` attribute. Additionally, we are listening for the `color-selected` event emitted from the `<color-picker-selection>` component and handling it in our own `handleColorSelected` method. We provide the `color` as the second argument so that it will be available to the event handler method. We also have added an `input` field and a `on-input` listener, which will trigger a change to the selected color when the user manually enters a hex color value.
 
 **components/color-picker/components/color-picker-footer/component.js**
 ```javascript
-function isValidHexValue (hexValue) {
-  return /^#[0-9A-F]{6}$/i.test(hexValue);
-}
-
 module.exports = class {
-  onColorSelected (color) {
-    this.emit('colorSelected', color);
+  handleColorSelected (color) {
+    this.emit('color-selected', color);
   }
-  onHexInput () {
+  handleHexInput () {
     let hexInput = this.getEl('hexInput').value;
 
     if (!hexInput.startsWith('#')) {
@@ -390,13 +386,17 @@ module.exports = class {
     this.emit('colorSelected', hexInput);
   }
 };
+
+function isValidHexValue (hexValue) {
+  return /^#[0-9A-F]{6}$/i.test(hexValue);
+}
 ```
 
 When the component logic is split out from the `index.marko` it needs to be
-exported like a standard JavaScript module. We have an `onColorSelected`
-event handler, which is going to emit the event back up to the parent `<color-picker-header>` component. We also have an `onHexInput` event handler
-with some basic validation logic. `onHexInput` also emits `colorSelected`, which
-will be handled the same way as the `colorSelected` event when it reaches
+exported like a standard JavaScript module. We have an `handleColorSelected`
+event handler, which is going to emit the event back up to the parent `<color-picker-header>` component. We also have an `handleHexInput` event handler
+with some basic validation logic. `handleHexInput` also emits `color-selected`, which
+will be handled the same way as the `color-selected` event when it reaches
 `<color-picker-header>`.
 
 **components/color-picker/components/color-picker-footer/style.css**
@@ -440,19 +440,19 @@ class {
     };
   }
 
-  onColorSelected(color) {
+  handleColorSelected(color) {
     this.state.selectedColor = color;
   }
 }
 
 <div>
   <color-picker-header color=state.selectedColor/>
-  <color-picker-footer colors=state.colors on-colorSelected('onColorSelected')/>
+  <color-picker-footer colors=state.colors on-color-selected('handleColorSelected')/>
 </div>
 ```
 
 Finally, we've added our `<color-picker-footer>`, passed the `state.colors`
-as `input` to it, added a `onColorSelected` event handler for the `colorSelected`
+as `input` to it, added a `handleColorSelected` event handler for the `color-selected`
 event emitted from `<color-picker-footer>`. When we handle this event, we
 update the `state` of the `<color-picker>` component, which is passed to
 the `<color-picker-header>`.
@@ -515,14 +515,14 @@ class {
     };
   }
 
-  onColorSelected(color) {
+  handleColorSelected(color) {
     this.state.selectedColor = color;
   }
 }
 
 <div>
   <color-picker-header color=state.selectedColor/>
-  <color-picker-footer colors=state.colors on-colorSelected('onColorSelected')/>
+  <color-picker-footer colors=state.colors on-color-selected('handleColorSelected')/>
 </div>
 ```
 
@@ -600,14 +600,14 @@ test('color-picker-selection color', function (context) {
   expect(output.$('div').attr('style')).to.contain('background-color:#ff8080');
 });
 
-test('color-picker-selection when clicked should emit colorSelected event', function (context) {
+test('color-picker-selection when clicked should emit color-selected event', function (context) {
   const output = context.render({
     color: '#ff8080'
   });
 
   var component = output.component;
   var isCalled = false;
-  component.on('colorSelected', function () {
+  component.on('color-selected', function () {
     isCalled = true;
   });
 
