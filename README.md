@@ -73,7 +73,7 @@ npm start
 ## Creating Components
 
 > NOTE: For a more detailed documentation of components, please see the
-> [markojs.com components documentation](http://markojs.com/docs/components/)
+> [markojs.com components documentation](http://markojs.com/docs/class-components/)
 
 In our new project, components are located in the `color-picker-tutorial/components/`
 directory. Next we need to create our component in the `components/` directory,
@@ -246,7 +246,7 @@ as components grow larger, we should split out the markup, component logic, and
 styling. We will see an example of this soon.
 
 Now let's look at what's going on. Marko has several
-[lifecycle methods](http://markojs.com/docs/components/#lifecycle) including
+[lifecycle methods](http://markojs.com/docs/class-components/#lifecycle) including
 `onInput`, which contains a single parameter `input`. As we discussed before
 `input` is the data that is passed to a Marko component upon initialization.
 We can use inline javascript easily with `$` (for a single statement) or `$ { /* ... */ }` (for multiple statements),
@@ -318,7 +318,7 @@ style {
 ```
 
 In this component, we've introduced `on-click` and `on-touchstart` listeners and a single event handler function.
-[Marko components inherit from EventEmitter](http://markojs.com/docs/components/#events).
+[Marko components inherit from EventEmitter](http://markojs.com/docs/class-components/#events).
 When this color is selected, it will emit a `click` event and get handled by the
 `handleColorSelected` function. The handler then emits a `color-selected` event to be handled by its parent. We will eventually write code to relay this information back to the `<color-picker-header>`, so its background
 color and text can be changed.
