@@ -246,7 +246,7 @@ as components grow larger, we should split out the markup, component logic, and
 styling. We will see an example of this soon.
 
 Now let's look at what's going on. Marko has several
-[lifecycle methods](http://markojs.com/docs/class-components/#lifecycle) including
+[lifecycle methods](http://markojs.com/docs/class-components/#lifecycle-events) including
 `onInput`, which contains a single parameter `input`. As we discussed before
 `input` is the data that is passed to a Marko component upon initialization.
 We can use inline javascript easily with `$` (for a single statement) or `$ { /* ... */ }` (for multiple statements),
